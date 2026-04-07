@@ -174,3 +174,23 @@ void insertBeforeNode(Node* node,int val){
     prev->next = newNode;
     node->back = newNode;
 }
+
+
+
+
+// function to reverse a doubly linked list
+class Solution {
+  public:
+    Node *reverse(Node *head) {
+        if(head==NULL || head->next == NULL) return head;
+        Node* current = head;
+        Node* prev = NULL;
+        while(current){
+            prev = current->back;
+            current->back = current->next;
+            current->next = prev;
+            current = current->back;
+        }
+        return prev->back;
+    }
+};
