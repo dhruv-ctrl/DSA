@@ -23,3 +23,31 @@ public:
 
 
 //iterative approach to reverse a linked list
+
+
+class Node {
+ public:
+    int data ;
+    Node *next ;
+
+    Node(int x) {
+        data = x ;
+        next = nullptr ;
+    }
+};
+
+
+class Solution {
+  public:
+    Node* reverseList(Node* head) {
+        Node* temp = head;
+        Node* prev=nullptr;
+        while(temp){
+            Node* front = temp->next;
+            temp->next = prev;
+            prev = temp;
+            temp = front;
+        }
+        return prev;
+    }
+};
